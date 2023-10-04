@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => console.log("Connected"))
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Connected");
+    fetchData("http://localhost:3000/questions")
+})
 //Do next 
 //get a working fetch request from a db.json file
 //replace above console.log with fetch function
