@@ -1,52 +1,64 @@
-[
+{
+    "questions": [
     {
+        "id": 1,
         "question": "What is JavaScript primarily used for?",
         "choices": ["Styling webapges", "Making websites interactive", "Creating databases", "Generating server logs"],
         "answer": "Making websites interactive"
     },
     {
+        "id": 2,
         "question": "Which keyword is used to declare a variable?",
         "choices": ["var", "int", "string", "variable"],
         "answer": "var"
     },
     {
+        "id": 3,
         "question": "What will the follwing code output?  -$ console.log(2 + '2');",
         "choices": ["4", "22", "NaN", "undefined"],
         "answer": "22"
     },
     {
+        "id": 4,
         "question": "Which is the correct way to write a comment?",
         "choices": ["//Comment", "<!Commment>", "/* Comment */", "$$Comment" ],
         "answer": "//Comment"
     },
     {
+        "id": 5,
         "question": "What does NaN mean?",
         "choices": ["Null", "Negative number", "Not a number", "Network access number"],
         "answer": "Not a number"
     },
     {
+        "id": 6,
         "question": "Which method is used to add an element to the end of an array?",
         "choices": [".add()", ".push()", ".pull()", ".unshift()"],
         "answer": ".push()"
     },
     {
+        "id": 7,
         "question": "Which operator is used to compare two values for strict equality?",
         "choices": ["==", "!=", "===", "!=="],
         "answer": "==="
     },
     {
+        "id": 8,
         "question": "What is the purpose of the return statement?",
         "choices": ["It defines variables", "It returns to the previous page", "It loops through an array", "It exits the function and returns a value to the caller"],
         "answer": "It exits the function and returns a value to the caller"
     },
     {
+        "id": 9,
         "question": "Which built-in object can be used to perform mathematical operations?",
         "choices": ["String", "Array", "Math", "Object"],
         "answer": "Math"
     },
     {
+        "id": 10,
         "question": "What is the correct way to write a 'for' loop statement?",
         "choices": ["for (let i = 0; i < 10; i++)", "for (i = 0; i < 10; i++)", "for (let i = 0)", "for (i < 10; i++)"],
         "answer": "for (let i = 0; i < 10; i++)"
     }
 ]
+}
