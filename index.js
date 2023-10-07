@@ -13,7 +13,7 @@ const header = document.querySelector('h1')
 header.style.fontSize = "40px"
 
 const list = document.querySelector("#questionList")
-
+const instructions = document.querySelector("#instructions")
 
 const startButton = document.querySelector("#start")
 startButton.addEventListener("click", startGame)
@@ -21,7 +21,9 @@ startButton.addEventListener("click", startGame)
 function startGame() {
     fetch("http://localhost:3000/questions")
     .then((resp) => resp.json())
-    .then((questions) => post(questions))
+    .then((questions) => post(questions));
+    startButton.remove();
+    instructions.innerText = "Choose the correct answer for each.  30-second timer starts now!"
 }
 
 function post(questions) {
