@@ -56,8 +56,6 @@ function post(questions) {
         p.style.fontWeight = "bold";
         p.style.fontSize = "28px";
 
-        list.appendChild(p);
-        
         const ul = document.createElement("ul");
         p.appendChild(ul);
 
@@ -70,31 +68,37 @@ function post(questions) {
             button.classList.add("choice-button");
             button.addEventListener("mouseover", highlight);
             button.addEventListener("mouseout", unhighlight);
-        function highlight() {
-            button.style.color = "blue"
-        }
+            button.addEventListener("click", handleClick(button, item));
+            button.addEventListener("click", toggleBold);
+        });
+
+        list.appendChild(p);
+    });
+}
+
+function highlight() {
+    button.style.color = "blue"
+}
         
-        function unhighlight() {
-            button.style.color = "black"
-        }
-        button.addEventListener("click", toggleBold);
-        function toggleBold() {
-            if (button.style.fontWeight === "normal" || button.style.fontWeight === "") {
-                button.style.fontWeight = "bold"
-            } else {
-                button.style.fontWeight = "normal"
-            }
-        }
-        button.addEventListener("click", () => {
-            if (button.innerText === item.answer) {
-                counter++;
-                alert("Very good!  Move on to the next question.")
-            } else {
-                alert("Incorrect, try again!");
-                button.remove()
-            }
-            })
-        })
-        })
+function unhighlight() {
+    button.style.color = "black"
+}
+        
+function toggleBold() {
+    if (button.style.fontWeight === "normal" || button.style.fontWeight === "") {
+        button.style.fontWeight = "bold"
+    } else {
+        button.style.fontWeight = "normal"
     }
+}
+
+function handleClick(button, item) {
+    if (button.innerText === item.answer) {
+        counter++;
+        alert("Very good!  Move on to the next question.")
+    } else {
+        alert("Incorrect, try again!");
+        button.remove()
+    }
+}
 
