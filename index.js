@@ -72,8 +72,8 @@ function post(questions) {
             li.appendChild(button);
             ul.appendChild(li);
             button.classList.add("choice-button");
-            button.addEventListener("mouseover", highlight);
-            button.addEventListener("mouseout", unhighlight);
+            button.addEventListener("mouseover", () => highlight(button));
+            button.addEventListener("mouseout", () => unhighlight(button));
             button.addEventListener("click", () => toggleBold(button));
             button.addEventListener("click", () => handleClick(button, item));
             
@@ -83,26 +83,25 @@ function post(questions) {
     });
 }
 
-function highlight() {
-    button.style.color = "blue"
+function highlight(button) {
+    button.style.color = "black"
 }
         
-function unhighlight() {
-    button.style.color = "black"
+function unhighlight(button) {
+    button.style.color = "white"
 }
 
 function toggleBold(button) {
     if (button.style.fontWeight === "normal" || button.style.fontWeight === "") {
         button.style.fontWeight = "bold"
-    } //else {
-       // button.style.fontWeight = "normal"
-    //}
+    } 
 }
 
 function handleClick(button, item) {
     if (button.innerText === item.answer) {
         counter++;
-        alert("Very good!  Move on to the next question.")
+        alert("Very good!  Move on to the next question.");
+        button.style.backgroundColor = "green";
     } else {
         alert("Incorrect, try again!");
         counter--;
