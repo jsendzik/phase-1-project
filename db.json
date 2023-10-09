@@ -14,7 +14,7 @@
     },
     {
         "id": 3,
-        "question": "What will the follwing code output?  -$ console.log(2 + '2');",
+        "question": "What will the follwing code output?  ~$ console.log(2 + '2');",
         "choices": ["4", "22", "NaN", "undefined"],
         "answer": "22"
     },

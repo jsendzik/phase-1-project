@@ -39,8 +39,9 @@ function startTimer() {
         }, 1000)
     }
 
-const choiceButtons = document.querySelector("#choiceButtons");
-choiceButtons.addEventListener("mouseover", highlight)
+
+
+
 
 function post(questions) {
     questions.forEach((item) => {
@@ -52,10 +53,17 @@ function post(questions) {
         item.choices.forEach((choice) => {
         const li = document.createElement("li");
         ul.appendChild(li);
-        li.innerHTML = `<button id="choiceButtons">${choice}</button>`;
+        li.innerHTML = `<button id="choiceButtons" class="">${choice}</button>`;
+        const choiceButtons = document.querySelector("#choiceButtons");
+        choiceButtons.addEventListener("mouseover", highlight);
+        choiceButtons.addEventListener("mouseout", unhighlight);
+        function highlight() {
+            choiceButtons.classList.add("highlighted")
+        }
+        function unhighlight() {
+            choiceButtons.classList.remove("highlighted")
+        }
         })
-        
-        
     })
 }
 
