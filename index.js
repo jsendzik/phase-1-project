@@ -8,29 +8,38 @@ function fetchData(url) {
     .then((resp) => resp.json())
     .then((data) => console.log(data))
 }
+//Above is just for reference to data from json
 
-const header = document.querySelector('h1')
-header.style.fontSize = "40px"
-let counter = 0
 
-const list = document.querySelector("#questionList")
-const instructions = document.querySelector("#instructions")
+const header = document.querySelector('h1');
+header.style.fontSize = "40px";
 
-const startButton = document.querySelector("#start")
-startButton.addEventListener("click", startGame)
+let counter = 0;
+
+const list = document.querySelector("#questionList");
+const instructions = document.querySelector("#instructions");
+const startButton = document.querySelector("#start");
+
+startButton.addEventListener("click", startGame);
 
 function startGame() {
     fetch("http://localhost:3000/questions")
     .then((resp) => resp.json())
-    .then((questions) => post(questions));
-    startButton.remove();
-    instructions.innerText = "Choose the correct answer for each.  60-second timer starts now!";
-    startTimer()
+    .then((questions) => {
+        post(questions)
+        startButton.remove();
+        instructions.innerText = "Choose the correct answer for each.  60-second timer starts now!";
+        startTimer();
+    })
+    .catch((error) => {
+        console.error("Error fetching questions. Check connection.", error);
+    });
 }
 
 function startTimer() {
     let seconds = 60
-    let timerInterval = setInterval(() => {
+    const 
+    const timerInterval = setInterval(() => {
         seconds--;
         document.querySelector("#timer").innerText = seconds;
         if (seconds === 0) {
