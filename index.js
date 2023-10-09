@@ -44,10 +44,16 @@ function startTimer() {
         timer.innerText = seconds;
         if (seconds === 0) {
             clearInterval(timerInterval);
-            alert(`Time is up! I hope you learned some basics about JavaScript.  Thanks for playing!`)
+            if (counter > 8) {
+               alert(`Time is up! You scored ${counter}/10, great job!`) 
+            } else if (counter > 5) {
+                alert(`Time is up! You scored ${counter}/10, not bad!`)
+            } else {
+                alert(`Time is up! You scored ${counter}/10, keep studying!`)
+            }  
         }
-        }, 1000)
-    }
+    }, 1000)
+}
 
 function post(questions) {
     questions.forEach((item) => {
@@ -68,8 +74,9 @@ function post(questions) {
             button.classList.add("choice-button");
             button.addEventListener("mouseover", highlight);
             button.addEventListener("mouseout", unhighlight);
-            button.addEventListener("click", handleClick(button, item));
-            button.addEventListener("click", toggleBold);
+            button.addEventListener("click", () => toggleBold(button));
+            button.addEventListener("click", () => handleClick(button, item));
+            
         });
 
         list.appendChild(p);
@@ -83,8 +90,8 @@ function highlight() {
 function unhighlight() {
     button.style.color = "black"
 }
-        
-function toggleBold() {
+
+function toggleBold(button) {
     if (button.style.fontWeight === "normal" || button.style.fontWeight === "") {
         button.style.fontWeight = "bold"
     } else {
@@ -98,6 +105,7 @@ function handleClick(button, item) {
         alert("Very good!  Move on to the next question.")
     } else {
         alert("Incorrect, try again!");
+        counter--;
         button.remove()
     }
 }
