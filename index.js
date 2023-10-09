@@ -28,7 +28,7 @@ function startGame() {
 
 function post(questions) {
     questions.forEach((item) => {
-        const p = document.createElement("p")
+        const p = document.createElement("p");
         list.appendChild(p);
         p.innerText = item.question;
     })
