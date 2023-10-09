@@ -39,6 +39,9 @@ function startTimer() {
         }, 1000)
     }
 
+const choiceButtons = document.querySelector("#choiceButtons");
+choiceButtons.addEventListener("mouseover", highlight)
+
 function post(questions) {
     questions.forEach((item) => {
         const p = document.createElement("p");
@@ -49,9 +52,8 @@ function post(questions) {
         item.choices.forEach((choice) => {
         const li = document.createElement("li");
         ul.appendChild(li);
-        li.innerHTML = `<button>${choice}</button>`;
+        li.innerHTML = `<button id="choiceButtons">${choice}</button>`;
         })
-        
         
         
     })
