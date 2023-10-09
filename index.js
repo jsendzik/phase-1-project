@@ -11,6 +11,7 @@ function fetchData(url) {
 
 const header = document.querySelector('h1')
 header.style.fontSize = "40px"
+let counter = 0
 
 const list = document.querySelector("#questionList")
 const instructions = document.querySelector("#instructions")
@@ -34,7 +35,7 @@ function startTimer() {
         document.querySelector("#timer").innerText = seconds;
         if (seconds === 0) {
             clearInterval(timerInterval);
-            alert("Time is up!")
+            alert(`Time is up! ${counter}/10`)
         }
         }, 1000)
     }
@@ -53,16 +54,40 @@ function post(questions) {
         item.choices.forEach((choice) => {
         const li = document.createElement("li");
         ul.appendChild(li);
-        li.innerHTML = `<button id="choiceButtons" class="">${choice}</button>`;
-        const choiceButtons = document.querySelector("#choiceButtons");
-        choiceButtons.addEventListener("mouseover", highlight);
-        choiceButtons.addEventListener("mouseout", unhighlight);
+        const button = document.createElement("button");
+        button.innerText = choice;
+        li.appendChild(button);
+        button.classList.add("choice-button");
+        button.addEventListener("mouseover", highlight);
+        button.addEventListener("mouseout", unhighlight);
         function highlight() {
-            choiceButtons.classList.add("highlighted")
+            button.style.color = "blue"
         }
+        
         function unhighlight() {
-            choiceButtons.classList.remove("highlighted")
+            button.style.color = "black"
         }
+        button.addEventListener("click", toggleBold);
+        function toggleBold() {
+            if (button.style.fontWeight === "normal" || button.style.fontWeight === "") {
+                button.style.fontWeight = "bold"
+            } else {
+                button.style.fontWeight = "normal"
+            }
+        }
+        button.addEventListener("click", () => {
+            if (button.innerText === item.answer) {
+                counter++
+            }
+            item.choices.forEach((choice) => {
+                if (button.innerText !== choice) {
+                    console.log(choice)
+                }
+            })
+
+        })
+
+
         })
     })
 }
