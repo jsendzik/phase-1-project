@@ -35,7 +35,7 @@ function startTimer() {
         document.querySelector("#timer").innerText = seconds;
         if (seconds === 0) {
             clearInterval(timerInterval);
-            alert(`Time is up! ${counter}/10`)
+            alert(`Time is up! I hope you learned some basics about JavaScript.  Thanks for playing!`)
         }
         }, 1000)
     }
@@ -49,6 +49,8 @@ function post(questions) {
         const p = document.createElement("p");
         list.appendChild(p);
         p.innerText = item.question;
+        p.style.fontWeight = "bold";
+        p.style.fontSize = "28px"
         const ul = document.createElement("ul");
         p.appendChild(ul);
         item.choices.forEach((choice) => {
@@ -77,18 +79,14 @@ function post(questions) {
         }
         button.addEventListener("click", () => {
             if (button.innerText === item.answer) {
-                counter++
+                counter++;
+                alert("Very good!  Move on to the next question.")
+            } else {
+                alert("Incorrect, try again!");
+                button.remove()
             }
-            item.choices.forEach((choice) => {
-                if (button.innerText !== choice) {
-                    console.log(choice)
-                }
             })
-
         })
-
-
         })
-    })
-}
+    }
 
