@@ -3,7 +3,7 @@
     {
         "id": 1,
         "question": "What is JavaScript primarily used for?",
-        "choices": ["Styling webapges", "Making websites interactive", "Creating databases", "Generating server logs"],
+        "choices": ["Styling webpages", "Making websites interactive", "Creating databases", "Generating server logs"],
         "answer": "Making websites interactive"
     },
     {
