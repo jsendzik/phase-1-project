@@ -37,11 +37,11 @@ function startGame() {
 }
 
 function startTimer() {
-    let seconds = 60
-    const 
+    let seconds = 60;
+    const timer = document.querySelector("#timer");
     const timerInterval = setInterval(() => {
         seconds--;
-        document.querySelector("#timer").innerText = seconds;
+        timer.innerText = seconds;
         if (seconds === 0) {
             clearInterval(timerInterval);
             alert(`Time is up! I hope you learned some basics about JavaScript.  Thanks for playing!`)
@@ -49,28 +49,27 @@ function startTimer() {
         }, 1000)
     }
 
-
-
-
-
 function post(questions) {
     questions.forEach((item) => {
         const p = document.createElement("p");
-        list.appendChild(p);
         p.innerText = item.question;
         p.style.fontWeight = "bold";
-        p.style.fontSize = "28px"
+        p.style.fontSize = "28px";
+
+        list.appendChild(p);
+        
         const ul = document.createElement("ul");
         p.appendChild(ul);
+
         item.choices.forEach((choice) => {
-        const li = document.createElement("li");
-        ul.appendChild(li);
-        const button = document.createElement("button");
-        button.innerText = choice;
-        li.appendChild(button);
-        button.classList.add("choice-button");
-        button.addEventListener("mouseover", highlight);
-        button.addEventListener("mouseout", unhighlight);
+            const li = document.createElement("li");
+            const button = document.createElement("button");
+            button.innerText = choice;
+            li.appendChild(button);
+            ul.appendChild(li);
+            button.classList.add("choice-button");
+            button.addEventListener("mouseover", highlight);
+            button.addEventListener("mouseout", unhighlight);
         function highlight() {
             button.style.color = "blue"
         }
