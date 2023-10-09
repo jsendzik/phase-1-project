@@ -94,9 +94,9 @@ function unhighlight() {
 function toggleBold(button) {
     if (button.style.fontWeight === "normal" || button.style.fontWeight === "") {
         button.style.fontWeight = "bold"
-    } else {
-        button.style.fontWeight = "normal"
-    }
+    } //else {
+       // button.style.fontWeight = "normal"
+    //}
 }
 
 function handleClick(button, item) {
