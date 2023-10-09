@@ -20,8 +20,8 @@
     },
     {
         "id": 4,
-        "question": "Which is the correct way to write a comment?",
-        "choices": ["//Comment", "<!Commment>", "/* Comment */", "$$Comment" ],
+        "question": "Which is the correct way to write a comment in JavaScript?",
+        "choices": ["//Comment", "/Commment", "/* Comment */", "$$Comment" ],
         "answer": "//Comment"
     },
     {

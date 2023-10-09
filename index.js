@@ -23,12 +23,12 @@ function startGame() {
     .then((resp) => resp.json())
     .then((questions) => post(questions));
     startButton.remove();
-    instructions.innerText = "Choose the correct answer for each.  30-second timer starts now!";
+    instructions.innerText = "Choose the correct answer for each.  60-second timer starts now!";
     startTimer()
 }
 
 function startTimer() {
-    let seconds = 30
+    let seconds = 60
     let timerInterval = setInterval(() => {
         seconds--;
         document.querySelector("#timer").innerText = seconds;
@@ -44,6 +44,15 @@ function post(questions) {
         const p = document.createElement("p");
         list.appendChild(p);
         p.innerText = item.question;
+        const ul = document.createElement("ul");
+        p.appendChild(ul);
+        item.choices.forEach((choice) => {
+        const li = document.createElement("li");
+        ul.appendChild(li);
+        li.innerHTML = `<button>${choice}</button>`;
+        })
+        
+        
         
     })
 }
