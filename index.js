@@ -32,7 +32,7 @@ function startGame() {
         startTimer();
     })
     .catch((error) => {
-        console.error("Error fetching questions. Check connection.", error);
+        alert("Error fetching questions. Check connection.", error);
     });
 }
 
