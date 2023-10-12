@@ -12,7 +12,6 @@ function fetchData(url) {
 
 
 const header = document.querySelector('h1');
-header.style.fontSize = "40px";
 
 let counter = 0;
 
