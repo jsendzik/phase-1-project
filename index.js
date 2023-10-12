@@ -1,13 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Connected");
-    fetchData("http://localhost:3000/questions")
-})
+// document.addEventListener("DOMContentLoaded", () => {
+//     console.log("Connected");
+//     fetchData("http://localhost:3000/questions")
+// })
 
-function fetchData(url) {
-    fetch(url)
-    .then((resp) => resp.json())
-    .then((data) => console.log(data))
-}
+// function fetchData(url) {
+//     fetch(url)
+//     .then((resp) => resp.json())
+//     .then((data) => console.log(data))
+// }
 //Above is just for reference to data from json
 
 
