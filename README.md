@@ -21,6 +21,7 @@ A fun and interactive JavaScript quiz game that tests your knowledge of JavaScri
 
 - To begin, clone the repository at https://github.com/jsendzik/phase-1-project
 - Run the project by opening index.html in the browser.
+- Be sure to start your JSON server in another terminal in order to connect db.json.
 
 ## Usage
 
